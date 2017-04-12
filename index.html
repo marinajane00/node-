@@ -6,10 +6,12 @@
 </head>
 <input type="text" id='name' class='login' />
 <input type="text" id='psw' class='login' />
-<script src='js/request.js'></script>
-<script src='js/verify.js'></script>
+<script src="js/jquery.js"></script>
+<script src="js/my_js.js"></script>
 <script>
-    alert(verify);
+    ajaxGet('27017',{},function(d){
+		console.log(d);
+	})
 </script>
 </body>
 </html>
