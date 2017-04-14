@@ -9,9 +9,9 @@ MongoClient.connect(DB_CONN_STR, function(err, db) {
 	console.log("当前操作为："+operation);
 	
 	var collection = db.collection(tb);//连接到表
-	
   switch (operation){//CURD
-	 case 'find' : collection.find(str, function(err, result) { 
+	 case 'find' : 
+	 collection.find(str).toArray(function(err, result) {
 		if(typeof (callback) =='function'){
 		callback(result)
 	    db.close();

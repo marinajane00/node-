@@ -1,19 +1,22 @@
-var URL='http://127.0.0.1:';
+var URL='http://localhost:';
 function ajaxGet(url,data,scallback){
 	$.ajax({
 		url:URL+url,
-		dataType:'json',
+		dataType:'jsonp',//服务器返回json格式数据
+		callback:'?',
 		data:data,
+		jsonp:'jsoncallback',
 		type:'get',//HTTP请求类型
 		timeout:10000,//超时时间设置为10秒；
 		success:function(data){
 			if(typeof scallback=='function'){
 				scallback(data)//回调函数
+				setTimeout(function(){window.location="/";},3000);
 			}
 		},
 		error:function(error){
 			//异常处理；
-			console.log(error);
+			console.log(error.status);
 		}
 	})
 }

@@ -3,15 +3,54 @@
 <head>
 <meta charset="utf-8">
 <title>Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='css/reset.css'>
+<link rel='stylesheet' href='css/mui.min.css'>
+<link rel="stylesheet/less" type="text/css" href="css/my_less.less" />
+<script src="js/less.min.js" type="text/javascript"></script>
 </head>
-<input type="text" id='name' class='login' />
-<input type="text" id='psw' class='login' />
+<body>
+	<header class="mui-bar mui-bar-nav">
+	<h1 class="mui-title">登录</h1>
+	</header>
+	<div class="wrap">
+		<form id='login-form' class="mui-input-group">
+			<div class="mui-input-row">
+				<label>账号</label>
+				<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+			</div>
+			<div class="mui-input-row">
+				<label>密码</label>
+				<input id='psw' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+			</div>
+		</form>
+		<form class="mui-input-group">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">
+					自动登录
+					<div id="autoLogin" class="mui-switch">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+		</form>
+		<div class="mui-content-padded">
+			<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+			<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+			</div>
+		</div>
+		<div class="mui-content-padded oauth-area">
+
+		</div>
+	</div>
 <script src="js/jquery.js"></script>
 <script src="js/my_js.js"></script>
+<script src="js/mui.min.js"></script>
 <script>
-    ajaxGet('27017',{},function(d){
-		console.log(d);
-	})
+    xmlHttp=new XMLHttpRequest();
+	xmlHttp.open("GET",'http://localhost:8080',false);
+	xmlHttp.send(null);
+	console.log(xmlHttp.responseText);
 </script>
 </body>
 </html>
