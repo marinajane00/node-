@@ -47,10 +47,12 @@
 <script src="js/my_js.js"></script>
 <script src="js/mui.min.js"></script>
 <script>
-    xmlHttp=new XMLHttpRequest();
-	xmlHttp.open("GET",'http://localhost:8080',false);
-	xmlHttp.send(null);
-	console.log(xmlHttp.responseText);
+	//使用get传参（默认连接到login表）
+    xhr('?name=boss');
+	//todo：连接不同表
+	//xhr('admin')
+//todo：ajax方式请求
+//ajaxGet('/',{},function(data){console.log(data);})
 </script>
 </body>
 </html>

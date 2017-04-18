@@ -10,15 +10,16 @@ http.createServer(function(request, response){
 	i++;
 	console.log("请求路径为 " + pathname );
 	console.log(querystring.parse(my_url.query));
-	if(pathname=='/'){
-		my_db.db('login','find',{"name":"marina"},function(d){
+	switch (pathname){
+		case ('/') :
+		my_db.db('login','find',querystring.parse(my_url.query),function(d){
 			response.writeHead(200,{"Access-Control-Allow-Origin":"*"});
 			console.log(d)
 			response.write("("+JSON.stringify(d)+")");
 			response.end();
 		});
-	}else{
-		response.end();
+		break;
+	default:	response.end();
 	}
 	
 }).listen(8080);

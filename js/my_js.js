@@ -1,4 +1,4 @@
-var URL='http://localhost:';
+var URL='http://localhost:8080/';
 function ajaxGet(url,data,scallback){
 	$.ajax({
 		url:URL+url,
@@ -19,6 +19,13 @@ function ajaxGet(url,data,scallback){
 			console.log(error.status);
 		}
 	})
+}
+function xhr(url,data){
+	xmlHttp=new XMLHttpRequest();
+	xmlHttp.open("GET",URL+url,false);
+	xmlHttp.send(data || null);
+	console.log(xmlHttp.responseText);
+	return xmlHttp.responseText;
 }
 //获取当天时间
 function getDate(e){
